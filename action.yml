@@ -1,0 +1,43 @@
+name: "Run Custom Shell Script"
+description: "Runs a shell script with username, password, and changed folders"
+author: "Your Name"
+
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up dependencies
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq zip
+
+    - name: Get changed Api_Document folders
+      id: changed_folders
+      shell: bash
+      run: |
+        git fetch --no-tags --prune --depth=2 origin main
+
+        mapfile -t changed_folders < <(
+          git diff --name-only --diff-filter=AM HEAD~1 HEAD |
+          grep '^Api_Document/' |
+          awk -F/ '{print $2}' |
+          sort -u
+        )
+
+        echo "✅ Changed folders in Api_Document:"
+        printf '%s\n' "${changed_folders[@]}"
+
+        changed_arg=$(printf '%s ' "${changed_folders[@]}")
+        changed_arg="${changed_arg%" "}"  # remove trailing space
+
+        echo "CHANGED_FOLDERS=$changed_arg" >> $GITHUB_ENV
+
+    - name: Make script executable
+      shell: bash
+      run: chmod +x ${{ github.action_path }}/test.sh
+
+    - name: Run script with inputs and changed folders
+      shell: bash
+      run: ${{ github.action_path }}/test.sh $CHANGED_FOLDERS
