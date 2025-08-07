@@ -48,6 +48,7 @@ export POSTMAN_WORKSPACE_ID="your-postman-workspace-id"
 export FIREBASE_API_KEY="your-firebase-api-key"
 ```
 
+also you can change `bussinessAreaid`
 #### 2. Process and Upload Postman Collections
 
 ```sh
@@ -114,4 +115,3 @@ just use the action.yml work flow
 
 ---
 
-Would you like me to update your `README.md` with this content? If you want to add or change anything, let me know!
