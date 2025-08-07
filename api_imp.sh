@@ -7,7 +7,7 @@ set -o pipefail
 USERNAME="${USERNAME}"
 PASSWORD="${PASSWORD}"
 API_KEY="${POSTMAN_API_KEY}"
-BA_ID="6889d7d5425aa40e67835ea0"  # Dummy or dynamic value
+BA_ID="6889d7d5425aa40e67835ea0"  
 LOGIN_URL="https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}"
 
 FIRST_API_URL="https://healthifyme-pov-2.digitalapicraft.com/api/v1/postman/collections"
