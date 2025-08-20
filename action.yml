@@ -7,17 +7,7 @@ author: "Your Name"
 runs:
   using: "composite"
   steps:
-    - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-    - name: Install sanity check dependencies
-        run: pip install pyyaml openapi-spec-validator
-
-    - name: Run OpenAPI sanity check
-        run: python sanity_check_openapi.py
-        
+    
     - name: Set up dependencies
       shell: bash
       run: |
