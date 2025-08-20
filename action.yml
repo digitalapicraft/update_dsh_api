@@ -16,7 +16,7 @@ runs:
       run: pip install pyyaml openapi-spec-validator
 
     - name: Run OpenAPI sanity check
-      run: python sanity_check_openapi.py
+      run: python ${{ github.action_path }}/sanity_check_openapi.py
 
     - name: Set up dependencies
       shell: bash
