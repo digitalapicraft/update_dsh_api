@@ -14,9 +14,11 @@ runs:
 
     - name: Install sanity check dependencies
       run: pip install pyyaml openapi-spec-validator
+      shell: bash
 
     - name: Run OpenAPI sanity check
       run: python ${{ github.action_path }}/sanity_check_openapi.py
+      shell: bash
 
     - name: Set up dependencies
       shell: bash
