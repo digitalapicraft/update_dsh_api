@@ -1,6 +1,6 @@
 name: "Run Custom Shell Script"
-description: "Runs a shell script with username, password, and changed folders"
-author: "Your Name"
+description: "Runs a shell script with username, password and google api key"
+author: "DAC coustom action"
 
 
 
