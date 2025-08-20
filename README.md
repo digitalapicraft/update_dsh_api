@@ -30,6 +30,9 @@ This project provides a set of scripts and utilities for managing API documentat
 - **dsh_upload.sh**:  
   Authenticates and uploads zipped API documentation to a remote server. It reads metadata from each API's `api.json` and uploads the corresponding ZIP file this get tigger once we change documentation files.
 
+- **sanity_check_openapi.py**:  
+  It validates contract for openapi 2 and 3 were it runs along with coustom git action while uploading the document into preprod.  
+
 
 
 ---
