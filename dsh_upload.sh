@@ -82,6 +82,7 @@ for key in "$@"; do
     if [ -n "$status_code" ] && [ "$status_code" -gt 399 ]; then
       echo "Upload failed for $dir (status_code $status_code)"
     else
+      echo "$status_code"
       echo "Upload succeeded for $dir"
     fi
     # uncomment for debugging
