@@ -52,5 +52,10 @@ runs:
       run: chmod +x ${{ github.action_path }}/dsh_upload.sh
 
     - name: Run script with inputs and changed folders
+      inputs:
+        api_url:
+          description: "API URL to use"
+          required: true
+          default: "osh-preprod.oneapihub.com" 
       shell: bash
       run: ${{ github.action_path }}/dsh_upload.sh $CHANGED_FOLDERS
