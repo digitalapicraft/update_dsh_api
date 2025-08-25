@@ -6,7 +6,7 @@ LOGIN_URL="https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword
 USERNAME="${USERNAME}"
 PASSWORD="${PASSWORD}"
 
-
+echo "$API_URL"
 
 # Login and get idToken
 login_response=$(curl -s "$LOGIN_URL" \
