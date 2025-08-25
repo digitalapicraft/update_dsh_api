@@ -1,7 +1,11 @@
 name: "Run Custom Shell Script"
 description: "Runs a shell script with username, password and google api key"
 author: "DAC coustom action"
-
+inputs:
+        api_url:
+          description: "API URL to use"
+          required: true
+          default: "osh-preprod.oneapihub.com"
 
 
 runs:
@@ -48,11 +52,6 @@ runs:
         echo "CHANGED_FOLDERS=$changed_arg" >> $GITHUB_ENV
 
     - name: Make script executable
-      inputs:
-        api_url:
-          description: "API URL to use"
-          required: true
-          default: "osh-preprod.oneapihub.com"
       shell: bash
       run: chmod +x ${{ github.action_path }}/dsh_upload.sh
 
