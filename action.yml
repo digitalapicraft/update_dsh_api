@@ -58,3 +58,5 @@ runs:
     - name: Run script with inputs and changed folders
       shell: bash
       run: ${{ github.action_path }}/dsh_upload.sh $CHANGED_FOLDERS
+      env:
+        INPUT_URL: ${{ inputs.url }}
