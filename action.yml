@@ -2,10 +2,10 @@ name: "Run Custom Shell Script"
 description: "Runs a shell script with username, password and google api key"
 author: "DAC coustom action"
 inputs:
-        url:
-          description: "API URL to use"
-          required: true
-          default: "osh-preprod.oneapihub.com"
+  url:
+    description: "API URL to use"
+    required: true
+    default: "osh-preprod.oneapihub.com"
 
 
 runs:
