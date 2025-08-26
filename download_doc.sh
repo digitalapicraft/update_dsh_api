@@ -24,7 +24,7 @@ fi
 
 BASE_URL="https://healthifyme-pov-2.digitalapicraft.com/api/v1/digital-content/documentation?filePath=gs://healthifyme-pov-2-digital-content"
 
-for api_json_path in Api_Document/*/api.json; do
+for api_json_path in api_document/*/api.json; do
   # Extract directory and API name
   api_dir=$(dirname "$api_json_path")
   api_name=$(basename "$api_dir")
