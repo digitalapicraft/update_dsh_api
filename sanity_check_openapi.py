@@ -37,7 +37,7 @@ def main():
     for root in changed_folders:
        
            # make sure it's a valid dir
-        contract_path = os.path.join(root, "contract", "openapi.yaml")
+        contract_path = os.path.join("Api_Document",root, "contract", "openapi.yaml")
         print(contract_path)   
         if os.path.isfile(contract_path):
             print("contract path are")
