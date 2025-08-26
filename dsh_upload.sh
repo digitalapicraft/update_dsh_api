@@ -79,7 +79,7 @@ for key in "$@"; do
       --form "zipFile=@$zip_file;type=application/zip" \
       --form "requestModel=$requestModel")    
     status_code=$(echo "$response" | jq -r '.status_code // empty')
-    if [ -n "$status_code" ] && [ "$status_code" -gt 399 ]; then
+    if [ -n "$status_code" ] && [ -z "$status_code" ] && [ "$status_code" -gt 399 ]; then
       echo "Upload failed for $dir (status_code $status_code)"
     else
       echo "$status_code"
