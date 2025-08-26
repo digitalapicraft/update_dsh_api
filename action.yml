@@ -11,19 +11,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-
-    - name: Install sanity check dependencies
-      run: pip install pyyaml openapi-spec-validator
-      shell: bash
-
-    - name: Run OpenAPI sanity check
-      run: python ${{ github.action_path }}/sanity_check_openapi.py
-      shell: bash
-
+    
     - name: Set up dependencies
       shell: bash
       run: |
@@ -50,6 +38,19 @@ runs:
         changed_arg="${changed_arg%" "}"  # remove trailing space
 
         echo "CHANGED_FOLDERS=$changed_arg" >> $GITHUB_ENV
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install sanity check dependencies
+      run: pip install pyyaml openapi-spec-validator
+      shell: bash
+
+    - name: Run OpenAPI sanity check
+      run: python ${{ github.action_path }}/sanity_check_openapi.py $CHANGED_FOLDERS
+      shell: bash
+    
 
     - name: Make script executable
       shell: bash
