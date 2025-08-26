@@ -30,7 +30,7 @@ search_response=$(curl -s "$SEARCH_URL" \
   --data-raw "$SEARCH_PAYLOAD")
 
 # Make sure base directory exists
-mkdir -p Api_Document
+mkdir -p api_document
 
 # Parse each API and write to its own api.json
 echo "$search_response" | jq -c '.data.pagedData[]' | while read -r api; do
@@ -45,9 +45,9 @@ echo "$search_response" | jq -c '.data.pagedData[]' | while read -r api; do
   technicalName=$(echo "$api" | jq -r '.versions[-1].technicalName')
 
   # Create directory and write api.json
-  mkdir -p "Api_Document/$safe_api_name"
+  mkdir -p "api_document/$safe_api_name"
 
-  cat > "Api_Document/$safe_api_name/api.json" <<EOF
+  cat > "api_document/$safe_api_name/api.json" <<EOF
 {
   "digitalContentId": "$digitalContentId",
   "versionedContentId": "$versionedContentId",
@@ -60,4 +60,4 @@ echo "$search_response" | jq -c '.data.pagedData[]' | while read -r api; do
 EOF
 done
 
-echo "All individual API JSON files have been generated in Api_Document/."
+echo "All individual API JSON files have been generated in api_document/."
