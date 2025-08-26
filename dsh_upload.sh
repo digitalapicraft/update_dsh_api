@@ -47,7 +47,7 @@ fi
 # Read all keys from config
 
 for key in "$@"; do
-  dir="Api_Document/$key"
+  dir="api_document/$key"
   zip_file="${key}.zip"
   api_json="$dir/api.json"
 
@@ -55,7 +55,7 @@ for key in "$@"; do
     echo "📦 Zipping $dir as $zip_file (excluding api.json)"
 
     (
-      cd Api_Document || exit 1
+      cd api_document || exit 1
       zip -r -q "../$zip_file" "$key" -x "$key/api.json"
     )
     # Extract values from JSON

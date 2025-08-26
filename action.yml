@@ -18,7 +18,7 @@ runs:
         sudo apt-get update
         sudo apt-get install -y jq zip
 
-    - name: Get changed Api_Document folders
+    - name: Get changed api_document folders
       id: changed_folders
       shell: bash
       run: |
@@ -31,7 +31,7 @@ runs:
           sort -u
         )
 
-        echo "✅ Changed folders in Api_Document:"
+        echo "✅ Changed folders in api_document:"
         printf '%s\n' "${changed_folders[@]}"
 
         changed_arg=$(printf '%s ' "${changed_folders[@]}")

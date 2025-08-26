@@ -2,7 +2,7 @@ import os
 import yaml
 from openapi_spec_validator import validate_spec
 
-API_DOC_DIR = 'Api_Document'
+API_DOC_DIR = 'api_document'
 
 
 def extract_markdown_from_openapi(openapi_path):
