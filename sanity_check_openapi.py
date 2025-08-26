@@ -3,7 +3,7 @@ import yaml
 import sys
 from openapi_spec_validator import validate_spec
 
-API_DOC_DIR = 'Api_Document'
+
 
 
 def sanity_check_openapi(openapi_path):
@@ -37,18 +37,18 @@ def main():
     for root in changed_folders:
        
         print("contract path are")   # make sure it's a valid dir
-        contract_path = os.path.join(API_DOC_DIR,root, "contract", "openapi.yaml")
+        contract_path = os.path.join(root, "contract", "openapi.yaml")
         print(contract_path)   
         if os.path.isfile(contract_path):
             
             errors = sanity_check_openapi(contract_path)
             if errors:
-                failed.append((openapi_path, errors))
-                print(f"[FAIL] {openapi_path}")
+                failed.append((contract_path, errors))
+                print(f"[FAIL] {contract_path}")
                 for err in errors:
                     print(f"    - {err}")
             else:
-                print(f"[PASS] {openapi_path}")
+                print(f"[PASS] {contract_path}")
     print(f"\nSanity check complete. {len(failed)} contract(s) failed.")
     if failed:
         print("\nSummary of failures:")
