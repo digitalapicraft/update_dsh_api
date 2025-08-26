@@ -32,22 +32,21 @@ def sanity_check_openapi(openapi_path):
 def main():
     failed = []
     changed_folders = sys.argv[1:]
-    print("folders are")
-    print(changed_folders)
+    
     for root in changed_folders:
        
            # make sure it's a valid dir
         contract_path = os.path.join("Api_Document",root, "contract", "openapi.yaml")
-        print(contract_path)   
+          
         if os.path.isfile(contract_path):
-            print("contract path are")
-        errors = sanity_check_openapi(contract_path)
-        if errors:
+            
+         errors = sanity_check_openapi(contract_path)
+         if errors:
                 failed.append((contract_path, errors))
                 print(f"[FAIL] {contract_path}")
                 for err in errors:
                     print(f"    - {err}")
-        else:
+         else:
                 print(f"[PASS] {contract_path}")
     print(f"\nSanity check complete. {len(failed)} contract(s) failed.")
     if failed:
