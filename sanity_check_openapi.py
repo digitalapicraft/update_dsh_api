@@ -32,6 +32,8 @@ def sanity_check_openapi(openapi_path):
 def main():
     failed = []
     changed_folders = sys.argv[1:]
+    print("folders are")
+    print(changed_folders)
     for root in changed_folders:
        if os.path.isdir(root):  # make sure it's a valid dir
         contract_path = os.path.join(root, "contract", "openapi.yaml")
