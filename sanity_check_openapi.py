@@ -33,6 +33,8 @@ def main():
     failed = []
     changed_folders = sys.argv[1:]
     for root in changed_folders:
+       if os.path.isdir(root):  # make sure it's a valid dir
+        files = os.listdir(root) 
         if 'openapi.yaml' in files:
             openapi_path = os.path.join(root, 'openapi.yaml')
             errors = sanity_check_openapi(openapi_path)
