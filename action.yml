@@ -26,7 +26,7 @@ runs:
 
         mapfile -t changed_folders < <(
           git diff --name-only --diff-filter=AM HEAD~1 HEAD |
-          grep '^Api_Document/' |
+          grep '^api_document/' |
           awk -F/ '{print $2}' |
           sort -u
         )
