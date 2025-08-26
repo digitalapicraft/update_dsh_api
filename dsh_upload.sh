@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CONFIG_FILE="dsh-config.json"
-API_URL="https://https://$INPUT_URL/api/v1/digital-content/documentation"
+API_URL="https://$INPUT_URL/api/v1/digital-content/documentation"
 LOGIN_URL="https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}"
 USERNAME="${USERNAME}"
 PASSWORD="${PASSWORD}"
