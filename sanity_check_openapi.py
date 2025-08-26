@@ -30,7 +30,8 @@ def sanity_check_openapi(openapi_path):
 
 def main():
     failed = []
-    for root, dirs, files in os.walk(API_DOC_DIR):
+    changed_folders = sys.argv[1:]
+    for root in changed_folders:
         if 'openapi.yaml' in files:
             openapi_path = os.path.join(root, 'openapi.yaml')
             errors = sanity_check_openapi(openapi_path)
