@@ -1,5 +1,6 @@
 import os
 import yaml
+import sys
 from openapi_spec_validator import validate_spec
 
 API_DOC_DIR = 'Api_Document'
